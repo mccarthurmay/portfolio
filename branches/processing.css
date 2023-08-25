@@ -1,0 +1,48 @@
+.return {
+    font-size: 25px;
+}
+
+.center {
+    margin:auto;
+    text-align:center;
+    
+}
+
+P {
+    font-size:30px;
+
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+
+ol {
+    display: block;
+    font-size: 25px;
+    display: inline-block;
+}
+
+
+
+ul {
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    list-style: inside;
+}
+
+video {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+body{
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+}
