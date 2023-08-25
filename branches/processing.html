@@ -5,13 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="main.css">
-        <title></title>
+        <title>Processing</title>
+
     </head>
     <body>
         <h1>Processing</h1>
         <p>A programming language based on Java, used to easily develop visual arts.</p>
         <br>
-
+        <!--TALK ABOUT HOW FRACTAL STUFF-->
         
         <ol>
             <li style="font-size:50px">Bubbly club</li>
@@ -22,9 +23,92 @@
                 <li>Places random points throughout the canvas. Each point is listed in console.</li>
                 <li>If mouse is pressed, then a point is drawn at (1,1).</li></lli>
             </ul>
+            <br>
+            
+            <iframe src="https://openprocessing.org/sketch/1988134/embed/" width="900" height="900"></iframe>
+            <p>(Clicking "&lt/&gt" will show the code)</p>
+
+
+            <li style="font-size:50px">Destiny kettledrum</li>
+            <p>This was another piece exploring the functions of Processing. </p>
+            <ul>
+                <li>Green and red are given random values each time the draw function is looped. </li>
+                <li>The Y value is set to 0, but increases by 30 every time a loop occurs.</li>
+                <li>The X value is also increasing by 25 until it reaches 800, which prompts the function to loop.</li>
+                <li>A square is drawn at every resulting coordinate.</li>
+            </ul>
+            <br>
+            <iframe src="https://openprocessing.org/sketch/1988136/embed/" width="900" height="900"></iframe>
+            <p>(Clicking "&lt/&gt" will show the code)</p>
+
+            <li style="font-size:50px">Theory</li>
+            <p>This piece demonstrates the usage of random movement and barriers. </p>
+            <ul>
+                <p>Rectangle.js</p>
+                <li>Sets random speed for x and y position of rectangle.</li>
+                <li>Sets size of rectangle to 10x10 pixels.</li>
+                <li>The speed varies by + or - 2 pixels.</li>
+                <p>Sketch.js</p>
+                <li>Imports rectangle.js's rules for rectangle movement.</li>
+                <li>Sets boundaries for where the rectangle can move by reversing direction each time a certain plane is hit.</li>
+                <li>Creates a new rectangle at mouse position when left clicked.</li>
+            </ul>
+            <br>
+
+            <iframe src="https://openprocessing.org/sketch/1988139/embed/" width="500" height="500"></iframe>
+            <p>(Clicking "&lt/&gt" will show the code)</p>
+            <p>(Left click to add rectangles.)</p>
+
+            <li style="font-size:50px">Sierpinski Triangle</li>
+            <p>This piece shows multiple stages of the fractal design, Sierpinski Triangle, created by Wacław Franciszek Sierpiński.</p>
+            <ul>
+                <li>Vectors are placed at three locations: a, b, and c. </li>
+                <li>X increases by 1 every time the draw function loops. </li>
+                <li>Each time x increases, a midpoint is created at half of the previous midpoints.</li>
+                <li>This continues until x = 6 or if the canvas is double left clicked.</li>
+
+            </ul>
+            <br>
+
+            <iframe src="https://openprocessing.org/sketch/1988141/embed/" width="500" height="500"></iframe>
+            <p>(Clicking "&lt/&gt" will show the code)</p>
+        
+            <li style="font-size:50px">Waves</li>
+            <p>This was my final project for a half-block Colorado College class called "Strange Fractals". </p>
+            <ul>
+                <p>Setup</p>
+                <li>Sliders are created for the speed of circle size increase as well as maximum circle size.</li>
+                <li>Buttons for circle placement presets are created.</li>
+                <li>Textual instructions are also placed to help with user experience.</li>
+                <p>Draw</p>
+                <li>Sliders are defined.</li>
+                <li>The limit is set in two ways; the maximum size of the circle is user based, however the limit may be reached randomly. This is done to create variation.</li>
+                <li>RGB is also randomly given to the outline of each circle.</li>
+                <p>Controls</p>
+                <li>A button called "add" was created to allow random additions of circles within a given area. </li>
+                <li>The scroll wheel places a circle at mouse position. </li>
+                <li>Pressing escape pauses the fractal while pressing tab resumes the fractal.</li>
+                <li>A reset button was created to be able to reset the drawing without resetting the entire program.</li>
+                <li>5 presets were created to test accurate placements of circles, which created varying designs. </li>
+   
+
+            </ul>
+            <br>
+
+            <iframe src="https://openprocessing.org/sketch/1988142/embed/" width="1050" height="875"></iframe>
+            <p>(Clicking "&lt/&gt" will show the code)</p>
+
         </ol>
-        <img src="./processing_res/bubbly.gif" alt="Bubbly">
+
+
+
+
+
+
+
+
+        <hr>
         <p class="return center"><a href="../index.html">Return to Main Page</a></p>
-    
+ 
     </body>
 </html>

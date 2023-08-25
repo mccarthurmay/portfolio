@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+        <title>Time Scrape</title>
+    </head>
+    <body>
+        <h1>Time Scrape</h1>
+        <hr>
+        <section class="code">
+            <pre>
+            
+                Sub TimeScrape()
+
+                Worksheets("ELV").Activate
+                
+                Do         ' Begin the loop.
+                        
+                ActiveCell.Offset(1, 0).Select
+                Range("E11").Copy
+                ActiveCell.PasteSpecial Paste:=xlPasteValues
+                Worksheets(ActiveSheet.Index + 1).Select
+                
+                If ActiveSheet.Index = 395 Then
+                    Application.Wait (Now + TimeValue("0:30:00")) ' 30 min
+                    Worksheets(3).Select
+                ElseIf Hour(Now) <= 9.5 Or Hour(Now) >= 16 Then
+                    Application.Wait (Now + TimeValue("0:17:30"))
+                End If ''to pause
+                
+                Loop
+                
+                
+                End Sub
+                
+                
+            </pre>
+        </section>
+        <hr>
+        <p><a href="../vba.html">Back</a></p>
+    </body>
+</html>

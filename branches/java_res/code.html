@@ -1,0 +1,154 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+        <title>Time Scrape</title>
+    </head>
+    <body>
+        <h1>Java</h1>
+        <hr>
+        <section class="code">
+            <pre>
+              package org.firstinspires.ftc.teamcode;
+              
+              import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+              import com.qualcomm.robotcore.hardware.DcMotorEx;
+              import com.qualcomm.robotcore.hardware.DcMotorSimple;
+              import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+              import com.qualcomm.robotcore.hardware.DcMotor;
+              import com.qualcomm.robotcore.hardware.Servo;
+              import java.lang.Math;
+              
+              @TeleOp(name = “max_nick")
+              public class Real_Deal extends LinearOpMode {
+              
+                public DcMotor BackRight;
+                public DcMotor BackLeft;
+                public DcMotor FrontRight;
+                public DcMotor FrontLeft;
+                public DcMotor LinearSlide;
+                public Servo Claw;
+              
+                @Override
+                public void runOpMode() {
+                  BackRight = hardwareMap.get(DcMotor.class, "Back Right");
+                  BackLeft = hardwareMap.get(DcMotor.class, "Back Left");
+                  FrontRight = hardwareMap.get(DcMotor.class, "Front Right");
+                  FrontLeft = hardwareMap.get(DcMotor.class, "Front Left");
+                  DcMotorEx LinearSlide = hardwareMap.get(DcMotorEx.class, "Linear Slide");
+                  Claw = hardwareMap.get(Servo.class, "Claw");
+                  
+                  LinearSlide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                  //DcMotorEx??
+                  waitForStart();
+                  
+               
+                int z = 0;
+                     
+                    while (opModeIsActive()) {
+                      
+                       
+                     
+                     if (gamepad2.dpad_up) {
+                       z = z + 100;
+              //compare to different z+’s because it may be causing input “lag”
+                           LinearSlide.setVelocity(2000);
+              //Needs SetPower to give it power to go to the position (z)
+                          if (z <= 4100) {
+                              z = 4100;
+                        }
+                  }
+                  else if (z <= 3000) {
+                       LinearSlide.setPower(.0005);
+                       LinearSlide.setTargetPosition(z);
+              //counteracts the pulling of bands, needs more testing, temp fix
+                  }
+                    
+               
+              
+                    if (gamepad2.dpad_down) {
+                        z = z - 100;
+                  LinearSlide.setVelocity(1000);
+                         if (z >= 0) {
+                         z = 0;
+                         }
+                    } 
+              
+              
+              //testing code
+              //height tall
+                If (gamepad2.triangle) {
+                LinearSlide.setVelocity(1000);
+                LinearSlide.setTargetPosition(4100);
+              }
+              
+              //height medium
+                If (gamepad2.square) {
+                LinearSlide.setVelocity(1000);
+                LinearSlide.setTargetPosition(3500);
+              }
+              
+              //height small
+                If (gamepad2.square) {
+                LinearSlide.setVelocity(1000);
+                LinearSlide.setTargetPosition(2100);
+              }
+              
+              
+              
+              
+              
+              
+              
+                    //else has been deleted because that was what was making everything jitter.
+                    //it would read power(0) and make it go to 0
+              
+                    LinearSlide.setTargetPosition(z); 
+                    LinearSlide.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
+              
+                      if (gamepad1.x || gamepad2.x) {
+                        break;      }
+                      
+                      FrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+                      BackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+                      
+                      double y = -gamepad1.left_stick_y;  
+                      double ry = -gamepad1.right_stick_y;
+                      double x = -gamepad1.left_stick_x * 1.1;
+                      double rx = -gamepad1.right_stick_x;
+                      
+                      double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
+                      double rightFrontPower = (y+x+rx+ry) / denominator;
+                      double rightBackPower =  (y-x+rx+ry) / denominator;
+                      double leftFrontPower =  (y-x-rx+ry) / denominator;
+                      double leftBackPower =  (y+x-rx+ry) / denominator;
+                      
+                      FrontRight.setPower(rightFrontPower);
+                      BackRight.setPower(rightBackPower);
+                      FrontLeft.setPower(leftFrontPower);
+                      BackLeft.setPower(leftBackPower);
+                        
+                        if (gamepad2.left_bumper)
+                      Claw.setPosition(1);
+                        if (gamepad2.right_bumper) {
+                      Claw.setPosition(0);}
+                        }
+                }
+              }
+              
+              
+                
+                
+            </pre>
+        </section>
+        <hr>
+        <p><a href="../java.html">Back</a></p>
+    </body>
+</html>

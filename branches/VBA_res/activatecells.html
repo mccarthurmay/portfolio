@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+        <title>Activate Cells</title>
+    </head>
+    <body>
+        <h1>Activate Cells</h1>
+        <hr>
+        <section class="code">
+            <pre>
+            
+            Public Sub activatecells()
+
+            Dim WS_Count As Integer
+            Dim I As Integer
+            
+            Worksheets("ELV").Activate
+            WS_Count = ActiveSheet.Index
+            
+            Do
+                Range("B1").Select
+                Worksheets(ActiveSheet.Index + 1).Select
+            Loop Until ActiveSheet.Index = 395
+                Range("B1").Select
+            
+            End Sub
+                  
+            ' move t
+            </pre>
+        </section>
+        <hr>
+        <p><a href="../vba.html">Back</a></p>
+    </body>
+</html>

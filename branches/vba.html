@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+        <title></title>
+    </head>
+    <body>
+        <h1>Visual Basic for Applications</h1>
+
+        <br>
+        <br>
+        
+        <h2>First Iteration of Stock Tracking</h2>
+        <p>I turned 18, and I was barely spending any money. Stocks have always been in the back of my mind, so I thought to try to code my way through it. Throughout my process,
+            I learned that it obviously was not that simple. However, I was also able to learn quite a bit of VBA through this process. My first project, which I promptly named "Stonks",
+        was quite a success in doing what it needed to do. It took a few weeks and multiple iterations, but my final product was eventually solidified.</p>
+
+        <p>My idea was to determine when a stock price was out of place. During the time, I was also taking AP Statistics. I was taught that almost everything follows a bell curve, with 95%
+            of the data within 2 standard deviations. Using this idea, I wanted to automate the process. Eventually, I was able to simultaneously track 394 stocks at the same time.  </p>
+        
+        <h3>Excel-Sided Calculations</h3>
+
+        <p>The first tab, "trackers", is a conglomerate of all stock trackers and information being spit back by other tabs.</p>
+        <img src="./VBA_res/stonktracker.png" alt="Tracker" style="height:400px">
+        <p>Every tab representing a tracker calculates and sends information to the trackers tab.</p>
+        <img src="./VBA_res/stonktemplate.png" alt="Template" style="height:400px">
+        <p>I calculate a 95% confidence interval through multiple cells. The upper and lower limits of the 95% interval are sent to the trackers page under "+" and "-", respectfully.</p>
+        <img src="./VBA_res/stonkconfidence.png" alt="Confidence" style="height:200px">
+        <p>The date, buy, and shares are manual inputs, while the sell price is the lower limit of an 80% confidence interval of the same stock. The current price is also listed in each template.</p>
+        <p>The % difference represents where the stock is in relation to the lower 95% confidence interval. A negative percentage shows that the stock is over the lower limit. A positive
+            percentage shows that the stock is below the lower limit and is a potential buy. </p>
+        <p>Finally, the payout is a simple calculation of the buy and the current. </p>
+        <img src="./VBA_res/stonkexample.png" alt="Example" style="height:35px">
+
+        <h3>Create Tabs</h3>
+        <ol>
+            <li>Prompts to select listed trackers</li>
+            <li>Copies the provided template page</li>
+            <li>Inputs the name of the first tracker into the correct slot whilst also naming the tab</li>
+            <li>Repeats for the next slot in the column</li>
+            <p><a href="./VBA_res/createsheets.html">Code</a></p>
+        </ol>
+       <h3>Activate Cells</h3>
+       <p>Temporary fix for time scraping module.</p>
+        <ol>
+            <li>Selects cell B1 in all sheets. </li>
+            <p><a href="./VBA_res/activatecells.html">Code</a></p>
+        </ol>
+        <h3>Time Scrape</h3>
+        <p>This was originally going to be used to gain smaller time increments of data in order to portray a more accurate representation of the value of the stock at the moment of observation.
+            The previous comparisons would have only been in relation to closing prices. Time scrape was intended to work around the paid services of many APIs, as they required a payment to view 
+            minute-to-minute data. However, due to the nature of the scraper requiring my computer to run indefinitely, I was never able to fully implement it nor test it as it became clear to me 
+            that this strategy was not efficient. I also tried to run it on a Raspberry Pi, but it was extremely slow and excel never ran correctly on the Windows version provided. 
+        </p>
+        <ol>
+            <p><a href="./VBA_res/timescrape.html">Code</a></p>
+        </ol>
+
+
+        <!--add margins-->
+
+        <h2>Current Iteration</h2>
+        <p>For my second attempt, I focused on trying to predict when a stock has hit the bottom of a dip. I analyzed the history of multiple stocks, looking for a pattern. Eventually,
+            I landed on some rough estimates that are still being tested to this day. This time, I also worked on separate sections of the full idea and combined everything into a
+        single module for a final draft.</p>
+        <ol>
+            <li>Read through column B of closing prices from the last 104 days, marking down the maximum price (peak).</li>
+            <li>Check if, at any point, the price is 5% below the max price. If so, copy the price value and paste it to column C.</li>
+            <li>Highlight cells in row C that are not empty.  </li>
+            <li>Copy all numbers from column C to column D.</li>
+            <li>Calculate the "relative minimum" (5% below the maximum) and median of column D, logging both values.</li>
+            <li>Subtract 2.5% of the median from the median to find the adjusted minimum and add 2.5% of the median to the median to find the adjusted maximum. </li>
+            <li>Read through column D and find any price that is above or below the adjusted maximum or adjusted minimum, respectfully. Those above the maximum are colored green
+                and those below the minimum are colored red. (Red slots show that the stock may continue to drop out of the safe 5% range.)
+            </li>
+            <li>Read through all prices in column B. Mark cells blue if the closing price is greater than the night before. Mark cells red if they are less than the night before.</li>
+            <p><a href="./VBA_res/minvalue.html">Code</a></p>
+        </ol>
+        <br>
+        <br>
+        <hr>
+        <p class="return center"><a href="../index.html">Return to Main Page</a></p>
+
+    </body>
+</html>
