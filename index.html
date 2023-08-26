@@ -9,20 +9,29 @@
     </head>
     <body>
 
-        <h1>My First Heading</h1>
+        <h1 class="center" style="margin-top:50px">Max's Portfolio</h1>
 
-        <p>Alright, here's my list</p>
-        <ol>
-            <li>Processing with all examples; maybe add some more; add video clips</li>
-            <li>Java in application to robotics; explain how the code is stored locally with the team, add video clips and explain stuff (SELF TAUGHT)</li>
-            <li><a href="./branches/vba.html">VBA</a></li>
-            <li><a href="./branches/processing.html">Processing</a></li>
-            <li><a href="./branches/future.html">Future</a></li>
-            <li><a href="./branches/java.html">java</a></li>
-            <li></li>
 
-            <!--use javascript to make buttons-->
-        </ol>
+        <input type="submit" onClick="procbutton()" value="Processing" class="button" />
+        <br>
+        <input type="submit" onClick="javabutton()" value="Java" class="button" />
+        <br>
+        <input type="submit" onClick="vbabutton()" value="VBA" class="button" />
+        <br>
+
+
+        <script>
+            function javabutton() {
+                    window.location.href = './branches/java.html';
+            }
+            function procbutton() {
+                    window.location.href = './branches/processing.html';
+            }
+            function vbabutton() {
+                    window.location.href = '/branches/vba.html';
+            }
+        </script>
+
        
     </body>
 </html>

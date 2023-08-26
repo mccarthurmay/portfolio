@@ -6,8 +6,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="main.css">
-        <title></title>
+        <link rel="stylesheet" href="vba.css">
+        <title>VBA</title>
     </head>
     <body>
         <h1>Visual Basic for Applications</h1>
@@ -38,28 +38,31 @@
         <img src="./VBA_res/stonkexample.png" alt="Example" style="height:35px">
 
         <h3>Create Tabs</h3>
-        <ol>
+        <ul>
             <li>Prompts to select listed trackers</li>
             <li>Copies the provided template page</li>
             <li>Inputs the name of the first tracker into the correct slot whilst also naming the tab</li>
             <li>Repeats for the next slot in the column</li>
-            <p><a href="./VBA_res/createsheets.html">Code</a></p>
-        </ol>
+            
+        </ul>
+        <p><a href="./VBA_res/createsheets.html">Code</a></p>
+
        <h3>Activate Cells</h3>
        <p>Temporary fix for time scraping module.</p>
-        <ol>
+        <ul>
             <li>Selects cell B1 in all sheets. </li>
-            <p><a href="./VBA_res/activatecells.html">Code</a></p>
-        </ol>
+        </ul>
+        <p><a href="./VBA_res/activatecells.html">Code</a></p>
+
         <h3>Time Scrape</h3>
         <p>This was originally going to be used to gain smaller time increments of data in order to portray a more accurate representation of the value of the stock at the moment of observation.
             The previous comparisons would have only been in relation to closing prices. Time scrape was intended to work around the paid services of many APIs, as they required a payment to view 
             minute-to-minute data. However, due to the nature of the scraper requiring my computer to run indefinitely, I was never able to fully implement it nor test it as it became clear to me 
             that this strategy was not efficient. I also tried to run it on a Raspberry Pi, but it was extremely slow and excel never ran correctly on the Windows version provided. 
         </p>
-        <ol>
-            <p><a href="./VBA_res/timescrape.html">Code</a></p>
-        </ol>
+    
+        <p><a href="./VBA_res/timescrape.html">Code</a></p>
+        
 
 
         <!--add margins-->
@@ -68,7 +71,7 @@
         <p>For my second attempt, I focused on trying to predict when a stock has hit the bottom of a dip. I analyzed the history of multiple stocks, looking for a pattern. Eventually,
             I landed on some rough estimates that are still being tested to this day. This time, I also worked on separate sections of the full idea and combined everything into a
         single module for a final draft.</p>
-        <ol>
+        <ul>
             <li>Read through column B of closing prices from the last 104 days, marking down the maximum price (peak).</li>
             <li>Check if, at any point, the price is 5% below the max price. If so, copy the price value and paste it to column C.</li>
             <li>Highlight cells in row C that are not empty.  </li>
@@ -79,12 +82,12 @@
                 and those below the minimum are colored red. (Red slots show that the stock may continue to drop out of the safe 5% range.)
             </li>
             <li>Read through all prices in column B. Mark cells blue if the closing price is greater than the night before. Mark cells red if they are less than the night before.</li>
-            <p><a href="./VBA_res/minvalue.html">Code</a></p>
-        </ol>
+        </ul>
+        <p><a href="./VBA_res/minvalue.html">Code</a></p>
         <br>
         <br>
         <hr>
-        <p class="return center"><a href="../index.html">Return to Main Page</a></p>
+        <p><a href="../index.html">Return to Main Page</a></p>
 
     </body>
 </html>

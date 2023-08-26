@@ -11,8 +11,7 @@
 P {
     font-size:20px;
 
-    margin-left: 50px;
-    margin-right: 50px;
+
 }
 
 h1 {
@@ -44,4 +43,19 @@ li {
 video {
     margin-left: 50px;
     margin-right: 50px;
+}
+body{
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+ul {
+    display: block;
+    text-align: center;
+
+    list-style: inside;
 }
